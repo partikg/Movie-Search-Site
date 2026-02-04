@@ -2,11 +2,11 @@
 
 Links:
 
+Site (Vercel): movieplayer-site.vercel.app
+
 Backend API (Render): https://movieplayer-backend.onrender.com
 
 Admin Panel (Vercel): movieplayer-adminpanel.vercel.app
-
-User Site (Vercel): movieplayer-site.vercel.app
 
 ------------------------------------------------------------
 
