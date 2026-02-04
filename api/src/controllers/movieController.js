@@ -4,7 +4,7 @@ exports.create = async (req, res) => {
     try {
         const data = await MovieModel.create({
             title: req.body.title,
-            poster: req.file?.filename,
+            poster: req.file?.path,
             category: req.body.category,
             year: req.body.year
         });
@@ -58,7 +58,13 @@ exports.update = async (req, res) => {
             }
         );
 
-        if (req.file) data.image = req.file.filename;
+        // if (req.file) data.image = req.file.filename;
+        if (req.file) {
+            await MovieModel.updateOne(
+                { _id: req.params.id },
+                { $set: { poster: req.file.path } }
+            );
+        }
 
         res.send({
             status: true,

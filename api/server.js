@@ -10,7 +10,7 @@ server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
-server.use('/uploads/movie', express.static('uploads/movie'));
+// server.use('/uploads/movie', express.static('uploads/movie'));
 
 require('./src/routes/user.routes')(server);
 require('./src/routes/categoryRoutes')(server);

@@ -51,7 +51,7 @@ export default function ViewMovie() {
                                 <td>{index + 1}</td>
                                 <td>{data.title}</td>
                                 <td>
-                                    <img src={`${import.meta.env.VITE_API_BASE_URL}/uploads/movie/${data.poster}`} className="w-16 h-16" />
+                                    <img src={data.poster} className="w-16 h-16" />
                                 </td>
                                 <td>{data.category?.name}</td>
                                 <td>{data.year}</td>
