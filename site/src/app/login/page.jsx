@@ -15,7 +15,7 @@ export default function login() {
         try {
             const requestBody = { email, password }
             const response = await axios.post(
-                'http://localhost:5000/api/user/login',
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/user/login`,
                 requestBody
             )
 

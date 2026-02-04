@@ -20,7 +20,7 @@ export default function AddMovie() {
         formData.append("category", event.target.category.value);
         formData.append("year", event.target.year.value);
 
-        axios.post("http://localhost:5000/api/movie/add", formData)
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/movie/add`, formData)
             .then((result) => {
                 // navigate('/movie/view')
                 toast.success(result.data.message)
@@ -33,7 +33,7 @@ export default function AddMovie() {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/category/view")
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/category/view`)
             .then(res => setCategories(res.data.data));
     }, []);
 

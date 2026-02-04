@@ -9,7 +9,7 @@ export default function Home() {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/movie/view')
+    axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/movie/view`)
       .then(res => {
         setMovies(res.data.data)
       })
@@ -44,7 +44,7 @@ export default function Home() {
               <Link key={movie._id} href={`/movie/${movie._id}`}>
                 <div className="bg-gray-800 rounded-xl overflow-hidden hover:shadow-xl transition duration-200">
                   <img
-                    src={`http://localhost:5000/uploads/movie/${movie.poster}`}
+                    src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/movie/${movie.poster}`}
                     alt={movie.title}
                     className="h-48 w-full object-cover"
                   />

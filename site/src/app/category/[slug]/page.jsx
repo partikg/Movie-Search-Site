@@ -10,7 +10,7 @@ export default function CategoryPage() {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/movie/view')
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/movie/view`)
             .then(res => {
                 const filtered = res.data.data.filter(
                     movie => movie.category?._id === slug
@@ -34,7 +34,7 @@ export default function CategoryPage() {
 
                             <div className="bg-gray-800 rounded-lg overflow-hidden">
                                 <img
-                                    src={`http://localhost:5000/uploads/movie/${movie.poster}`}
+                                    src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/movie/${movie.poster}`}
                                     alt={movie.title}
                                     className="h-48 w-full object-cover"
                                 />

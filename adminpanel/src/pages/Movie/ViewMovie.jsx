@@ -7,7 +7,7 @@ export default function ViewMovie() {
     let [movie, setmovie] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/movie/view')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/movie/view`)
             .then((success) => {
                 // result.data.data = all movie
                 setmovie(success.data.data);
@@ -18,7 +18,7 @@ export default function ViewMovie() {
     }, []);
 
     let singledelete = (movieid) => {
-        axios.post(`http://localhost:5000/api/movie/delete/${movieid}`)
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/movie/delete/${movieid}`)
             .then((result) => {
                 toast.success(result.data.message);
             })
@@ -51,7 +51,7 @@ export default function ViewMovie() {
                                 <td>{index + 1}</td>
                                 <td>{data.title}</td>
                                 <td>
-                                    <img src={`http://localhost:5000/uploads/movie/${data.poster}`} className="w-16 h-16" />
+                                    <img src={`${import.meta.env.VITE_API_BASE_URL}/uploads/movie/${data.poster}`} className="w-16 h-16" />
                                 </td>
                                 <td>{data.category?.name}</td>
                                 <td>{data.year}</td>

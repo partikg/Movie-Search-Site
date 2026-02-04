@@ -24,11 +24,11 @@ export default function Header() {
     const [apiUsers, setApiUsers] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/category/view')
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/category/view`)
             .then(res => setCategories(res.data.data))
             .catch(err => console.log(err))
 
-        fetch('http://localhost:5000/api/movie/view')
+        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/movie/view`)
             .then(response => response.json())
             .then(data => {
                 setApiUsers(data.data)

@@ -9,7 +9,7 @@ export default function page() {
         const token = localStorage.getItem('access_token')
         console.log('TOKEN:', token)
 
-        axios.get('http://localhost:5000/api/user/profile', {
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/user/profile`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

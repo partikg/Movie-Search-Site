@@ -8,7 +8,7 @@ export default function page() {
     const [movie, setmovie] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/movie/view')
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/movie/view`)
             .then(res => {
                 const allMovies = res.data.data
                 const singleMovie = allMovies.find(m => m._id === slug)
@@ -24,7 +24,7 @@ export default function page() {
 
             <div className="bg-gray-800 rounded-lg p-4 max-w-4xl mx-auto">
                 <img
-                    src={`http://localhost:5000/uploads/movie/${movie.poster}`}
+                    src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/movie/${movie.poster}`}
                     alt={movie.title}
                     className="h-80 w-full object-cover rounded-md"
                 />
