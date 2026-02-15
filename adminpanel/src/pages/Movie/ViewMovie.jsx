@@ -10,6 +10,7 @@ export default function ViewMovie() {
         axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/movie/view`)
             .then((success) => {
                 // result.data.data = all movie
+                console.log(success.data.data)
                 setmovie(success.data.data);
             })
             .catch((error) => {
